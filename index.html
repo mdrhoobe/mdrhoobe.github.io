@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
@@ -22,10 +23,9 @@
       </div>
       <h1>Mohammed<br><em>Salih</em></h1>
       <p class="tagline">Full Stack Developer · OSINT Researcher · Cybersecurity Enthusiast</p>
-      <a href="Mohammed_Drhoobe_CV.pdf"
-   download="Mohammed_Drhoobe_CV.pdf"
-   class="cv-download-btn"
-   aria-label="Download CV as PDF">
+
+      <!-- CV download button - generates PDF dynamically from cv.js-->
+      <button id="cv-download-btn" class="cv-download-btn" aria-label="Download CV as PDF">
   <span class="cv-btn-icon" aria-hidden="true">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
          stroke="currentColor" stroke-width="2.2"
@@ -36,8 +36,8 @@
     </svg>
   </span>
   <span class="cv-btn-label">Download CV</span>
-  <span class="cv-btn-tag">PDF</span>
-</a>
+  <span class="cv-btn-tag">PDF · Live</span>
+</button>
     </header>
 
     <!-- ── ABOUT ── -->
@@ -313,5 +313,7 @@
   </div>
 
   <script src="script.js" defer></script>
+  <script src="cv.js" defer></script>
+  
 </body>
 </html>
