@@ -1,4 +1,4 @@
-/**
+7/**
  * cv.js — Dynamic CV Generator
  * يولّد PDF في المتصفح مباشرة — لا سيرفر، لا رفع ملفات
  * لتعديل أي معلومة: عدّل CV_DATA فقط
@@ -249,25 +249,3 @@ function generateCV() {
   doc.save('Mohammed_Drhoobe_CV.pdf');
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const cvBtn = document.getElementById('cv-download-btn');
-  if (!cvBtn) return;
-  cvBtn.addEventListener('click', e => {
-    e.preventDefault();
-    const label = cvBtn.querySelector('.cv-btn-label');
-    const orig  = label.textContent;
-    label.textContent = 'Generating...';
-    cvBtn.style.pointerEvents = 'none';
-    setTimeout(() => {
-      try {
-        generateCV();
-        label.textContent = 'Downloaded ✓';
-        cvBtn.style.borderColor = 'var(--accent)';
-        setTimeout(() => { label.textContent = orig; cvBtn.style.pointerEvents = ''; cvBtn.style.borderColor = ''; }, 2500);
-      } catch(err) {
-        label.textContent = 'Error — try again';
-        setTimeout(() => { label.textContent = orig; cvBtn.style.pointerEvents = ''; }, 2000);
-      }
-    }, 50);
-  });
-});
