@@ -176,3 +176,18 @@ document.querySelectorAll('.copyable').forEach(item => {
     `<span class="btn-label">${label}</span>` +
     `<span class="btn-arrow" aria-hidden="true">→</span>`;
 });
+
+
+const themeBtn = document.getElementById("theme-toggle");
+
+if (themeBtn) {
+  themeBtn.addEventListener("click", () => {
+    const current = document.body.getAttribute("data-theme");
+    const next = current === "light" ? "dark" : "light";
+    document.body.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+  });
+
+  const saved = localStorage.getItem("theme");
+  if (saved) document.body.setAttribute("data-theme", saved);
+}
