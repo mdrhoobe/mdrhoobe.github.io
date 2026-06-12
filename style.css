@@ -566,3 +566,20 @@ border:  1px solid var(--border);
 .cv-toggle:hover:not(.active) {
   color: var(--text);
 }
+
+:root {
+  --bg: #0a0a0a;
+  --text: #e8e8e8;
+  --surface: #111;
+}
+
+body[data-theme="light"] {
+  --bg: #ffffff;
+  --text: #111111;
+  --surface: #f2f2f2;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
