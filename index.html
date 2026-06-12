@@ -19,49 +19,278 @@
       <div class="status-pill">
         <span class="status-dot" aria-hidden="true"></span>
         Available for opportunities
-        <button id="theme-toggle" class="theme-toggle">Toggle Theme</button>
       </div>
       <h1>Mohammed<br><em>Salih</em></h1>
       <p class="tagline">Full Stack Developer · OSINT Researcher · Cybersecurity Enthusiast</p>
 
-      <!-- CV download button - generates PDF dynamically from cv.js-->
-<button id="cv-download-btn" class="cv-download-btn" aria-label="Download CV as PDF">
-  <span class="cv-btn-icon" aria-hidden="true">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-         stroke="currentColor" stroke-width="2.2"
-         stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-      <polyline points="7 10 12 15 17 10"/>
-      <line x1="12" y1="15" x2="12" y2="3"/>
-    </svg>
-  </span>
-  <span class="cv-btn-label">Download CV</span>
-  <span class="cv-btn-tag">PDF · Live</span>
-</button>
+      <!-- CV Download button -->
+      <button id="cv-download-btn" class="cv-download-btn" aria-label="Download CV as PDF">
+        <span class="cv-btn-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="2.2"
+               stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </span>
+        <span class="cv-btn-label">Download CV</span>
+        <span class="cv-btn-tag">PDF · Live</span>
+      </button>
+    </header>
 
-<script>
-document.getElementById('cv-download-btn').addEventListener('click', function() {
-  const label = this.querySelector('.cv-btn-label');
-  label.textContent = 'Loading...';
-  this.style.pointerEvents = 'none';
+    <!-- ── ABOUT ── -->
+    <section aria-labelledby="about-label">
+      <p class="section-label" id="about-label">About</p>
+      <p class="about-text">
+        IT specialist with expertise in full-stack web development, network infrastructure,
+        and open-source intelligence (OSINT). Skilled in building secure and scalable web
+        platforms, developing data-driven intelligence solutions, and supporting
+        mission-critical technology environments. Currently working as a Technical Support
+        Specialist at the Libyan Ministry of Interior, with a strong focus on cybersecurity,
+        digital transformation, and innovative technology solutions.
+      </p>
+    </section>
 
-  // تحميل jsPDF ديناميكياً عند الضغط فقط
-  const script = document.createElement('script');
-  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
-  script.onload = function() {
-    // بعد تحميل المكتبة، حمّل cv.js
-    const cvScript = document.createElement('script');
-    cvScript.src = 'cv.js?v=' + Date.now(); // منع cache
-    cvScript.onload = function() {
-      label.textContent = 'Generating...';
-      setTimeout(function() {
-        try {
-          generateCV();
-          label.textContent = 'Downloaded ✓';
-          setTimeout(function() {
-            label.textContent = 'Download CV';
-            document.getElementById('cv-download-btn').style.pointerEvents = '';
-          }, 2500);
+    <hr class="divider">
+
+    <!-- ── TECHNICAL SKILLS ── -->
+    <section aria-labelledby="skills-label">
+      <p class="section-label" id="skills-label">Technical Skills</p>
+      <div class="skill-grid">
+        <div class="skill-item">
+          <span class="skill-name">React / Node.js</span>
+          <span class="skill-cat">Frontend · Backend</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">MongoDB</span>
+          <span class="skill-cat">Database</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">REST APIs</span>
+          <span class="skill-cat">Integration</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Python</span>
+          <span class="skill-cat">Automation · OSINT</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">OSINT Tools</span>
+          <span class="skill-cat">Intelligence</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Linux / Bash</span>
+          <span class="skill-cat">Systems</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Network Setup</span>
+          <span class="skill-cat">Infrastructure</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Technical Support</span>
+          <span class="skill-cat">IT Infrastructure</span>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">English — C1</span>
+          <span class="skill-cat">Language</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ── EXPERIENCE ── -->
+    <section aria-labelledby="exp-label">
+      <p class="section-label" id="exp-label">Experience</p>
+      <div class="cert-list">
+        <div class="cert-item">
+          <div class="cert-icon" aria-hidden="true">💼</div>
+          <div>
+            <div class="cert-name">Technical Support Specialist</div>
+            <div class="cert-issuer">Communications Unit — Libyan Ministry of Interior</div>
+            <div class="cert-issuer">Jan 2015 — Present</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon" aria-hidden="true">🌐</div>
+          <div>
+            <div class="cert-name">Network Technician</div>
+            <div class="cert-issuer">Rawafed Libya for Communications and Technology</div>
+            <div class="cert-issuer">Jan 2017 — Jan 2018</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ── CREDENTIALS ── -->
+    <section aria-labelledby="creds-label">
+      <p class="section-label" id="creds-label">Credentials</p>
+      <div class="cert-list">
+        <div class="cert-item">
+          <div class="cert-icon" aria-hidden="true">🎓</div>
+          <div>
+            <div class="cert-name">B.Sc. Information Technology</div>
+            <div class="cert-issuer">Libyan University of Modern Sciences and Technology</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon" aria-hidden="true">🔍</div>
+          <div>
+            <div class="cert-name">OSINT Certified Practitioner</div>
+            <div class="cert-issuer">UNODC — United Nations Office on Drugs and Crime</div>
+          </div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-icon" aria-hidden="true">💻</div>
+          <div>
+            <div class="cert-name">Full Stack Developer</div>
+            <div class="cert-issuer">IT SHEAR — Jan 2021 · Jun 2021</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ── CONTACT ── -->
+    <section aria-labelledby="contact-label">
+      <p class="section-label" id="contact-label">Contact</p>
+      <button id="btn" aria-expanded="false" aria-controls="contact-panel">
+        Get in touch
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </button>
+      <div id="contact-panel" class="contact-panel" aria-hidden="true">
+        <div class="contact-item copyable"
+             data-copy="mdrhoobe@gmail.com"
+             data-label="Email"
+             role="button" tabindex="0"
+             aria-label="Copy email address">
+          <span class="contact-icon" aria-hidden="true">✉</span>
+          <span class="contact-value">mdrhoobe@gmail.com</span>
+          <span class="copy-hint">click to copy</span>
+        </div>
+        <div class="contact-item copyable"
+             data-copy="+218917875051"
+             data-label="Phone"
+             role="button" tabindex="0"
+             aria-label="Copy phone number">
+          <span class="contact-icon" aria-hidden="true">📞</span>
+          <span class="contact-value">+218 91 787 5051</span>
+          <span class="copy-hint">click to copy</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- ── PROFILES ── -->
+    <section aria-labelledby="social-label">
+      <p class="section-label" id="social-label">Profiles</p>
+      <button id="social-btn" aria-expanded="false" aria-controls="social-panel">
+        View profiles
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </button>
+      <div id="social-panel" class="contact-panel" aria-hidden="true">
+
+        <a class="contact-item social-link"
+           href="https://github.com/mdrhoobe"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="GitHub profile (opens in new tab)">
+          <span class="contact-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </span>
+          <span class="contact-value">GitHub</span>
+          <span class="social-tag">Code & Projects</span>
+        </a>
+
+        <a class="contact-item social-link"
+           href="https://linkedin.com/in/mohammed-salih-3110bb1a8"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="LinkedIn profile (opens in new tab)">
+          <span class="contact-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </span>
+          <span class="contact-value">LinkedIn</span>
+          <span class="social-tag">Professional Network</span>
+        </a>
+
+        <a class="contact-item social-link"
+           href="https://stackoverflow.com/users/32810628"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Stack Overflow profile (opens in new tab)">
+          <span class="contact-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.986 21.865v-6.404h2.134V24H1.844v-8.539h2.13v6.404h15.012zM6.111 19.731H17.78v-2.131H6.111v2.131zm.259-4.852 11.42 2.379.451-2.081-11.42-2.379-.451 2.081zm1.359-5.056 10.57 4.939.894-1.975-10.57-4.94-.894 1.976zm2.679-4.936 8.771 7.357 1.389-1.652-8.77-7.358-1.39 1.653zM15.751 0l-1.792 1.338 6.801 9.108 1.792-1.338L15.751 0z"/>
+            </svg>
+          </span>
+          <span class="contact-value">Stack Overflow</span>
+          <span class="social-tag">Q&A Contributions</span>
+        </a>
+
+        <a class="contact-item social-link"
+           href="https://tryhackme.com/p/mdrhoobe"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="TryHackMe profile (opens in new tab)">
+          <span class="contact-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10.705 0C7.54 0 4.902 2.285 4.374 5.298A4.868 4.868 0 0 0 0 10.133a4.868 4.868 0 0 0 4.868 4.868h5.837V10.9H7.3l4.406-4.406 4.406 4.406h-3.405v4.1h5.524A3.773 3.773 0 0 0 22 11.228a3.773 3.773 0 0 0-3.21-3.73C18.156 3.293 14.802 0 10.705 0zm.001 1.614c3.36 0 6.085 2.658 6.085 5.94v.72l.726.08a2.16 2.16 0 0 1 1.869 2.874 2.16 2.16 0 0 1-2.155 1.563h-4.227V9.714l1.566 1.566.943-.943-3.807-3.808-3.808 3.808.944.943 1.566-1.566v3.077H5.165a3.254 3.254 0 0 1-3.55-3.252 3.254 3.254 0 0 1 3.254-3.254l.753-.001.072-.75c.328-3.004 2.84-5.18 5.812-5.18zm-.443 15.388v1.615h1.08v-1.615zm0 2.692V24h1.08v-4.306z"/>
+            </svg>
+          </span>
+          <span class="contact-value">TryHackMe</span>
+          <span class="social-tag">Cybersecurity Labs</span>
+        </a>
+
+        <a class="contact-item social-link"
+           href="https://twitter.com/maldrhoobe"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="X / Twitter profile (opens in new tab)">
+          <span class="contact-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </span>
+          <span class="contact-value">X / Twitter</span>
+          <span class="social-tag">Tech Updates</span>
+        </a>
+
+        <a class="contact-item social-link"
+           href="https://t.me/XLY_25"
+           target="_blank" rel="noopener noreferrer"
+           aria-label="Telegram profile (opens in new tab)">
+          <span class="contact-icon" aria-hidden="true">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+          </span>
+          <span class="contact-value">Telegram</span>
+          <span class="social-tag">Quick Message</span>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+      <span>Mohammed Salih · Libya</span>
+      <span id="year"></span>
+    </footer>
+
+  </div>
+
+  <div id="copied-toast" role="status" aria-live="polite">
+    <span id="toast-text">Copied to clipboard ✓</span>
+  </div>
+
+  <script src="script.js" defer></script>
+  <script src="cv.js" defer></script>
+</body>
+</html>          }, 2500);
         } catch(e) {
           label.textContent = 'Error — refresh & retry';
           console.error(e);
