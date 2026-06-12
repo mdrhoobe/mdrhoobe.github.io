@@ -1,40 +1,88 @@
-/**
- * script.js — Mohammed Saleh Portfolio
- * ─────────────────────────────────────
- * Responsibilities:
- *  1. Inject the current year into the footer.
- *  2. Toggle the Contact panel open/closed (email, phone).
- *  3. Toggle the Profiles panel open/closed (social links).
- *  4. Copy text to clipboard when a copyable item is clicked.
- *  5. Show a labelled toast notification after a successful copy.
- *  6. Stagger-animate panel items on open for a polished entrance.
- *  7. Full keyboard accessibility (Enter / Space on all interactive elements).
- */
-
-// ─── Constants ────────────────────────────────────────────────────────────────
-
-/** Duration (ms) the toast notification stays visible. */
 const TOAST_DURATION_MS = 2200;
-
-/** Delay (ms) between each staggered item animation inside a panel. */
 const STAGGER_MS = 60;
-
-// ─── DOM References ──────────────────────────────────────────────────────────
 
 const yearSpan   = document.getElementById('year');
 const toast      = document.getElementById('copied-toast');
 const toastText  = document.getElementById('toast-text');
-
-// Contact panel (email + phone)
-const contactBtn   = document.getElementById('btn');
+const contactBtn = document.getElementById('btn');
 const contactPanel = document.getElementById('contact-panel');
-
-// Profiles panel (social links)
-const socialBtn   = document.getElementById('social-btn');
+const socialBtn  = document.getElementById('social-btn');
 const socialPanel = document.getElementById('social-panel');
 
-// ─── 1. Footer Year ───────────────────────────────────────────────────────────
+yearSpan.textContent = new Date().getFullYear();
 
+function togglePanel(btn, panel, openLabel, closeLabel) {
+  const isOpen = panel.classList.contains('open');
+  if (isOpen) {
+    panel.classList.remove('open');
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+    btn.querySelector('.btn-label').textContent = closeLabel;
+    panel.querySelectorAll('.contact-item').forEach(item => {
+      item.classList.remove('visible');
+    });
+  } else {
+    panel.classList.add('open');
+    btn.classList.add('open');
+    btn.setAttribute('aria-expanded', 'true');
+    btn.querySelector('.btn-label').textContent = openLabel;
+    panel.querySelectorAll('.contact-item').forEach((item, index) => {
+      setTimeout(() => item.classList.add('visible'), index * STAGGER_MS);
+    });
+  }
+}
+
+contactBtn.addEventListener('click', () => {
+  togglePanel(contactBtn, contactPanel, 'Hide contact', 'Get in touch');
+});
+
+socialBtn.addEventListener('click', () => {
+  togglePanel(socialBtn, socialPanel, 'Hide profiles', 'View profiles');
+});
+
+function copyToClipboard(text, label) {
+  navigator.clipboard.writeText(text)
+    .then(() => showToast(label))
+    .catch(() => fallbackCopy(text, label));
+}
+
+function fallbackCopy(text, label) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.cssText = 'position:fixed;opacity:0;pointer-events:none;';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); showToast(label); }
+  catch (e) { console.error('Copy failed:', e); }
+  document.body.removeChild(ta);
+}
+
+function showToast(label) {
+  toastText.textContent = `${label} copied to clipboard ✓`;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), TOAST_DURATION_MS);
+}
+
+document.querySelectorAll('.copyable').forEach(item => {
+  const text  = item.dataset.copy;
+  const label = item.dataset.label || 'Value';
+  item.addEventListener('click', () => copyToClipboard(text, label));
+  item.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      copyToClipboard(text, label);
+    }
+  });
+});
+
+[
+  { btn: contactBtn, label: 'Get in touch' },
+  { btn: socialBtn,  label: 'View profiles' },
+].forEach(({ btn, label }) => {
+  btn.innerHTML =
+    `<span class="btn-label">${label}</span>` +
+    `<span class="btn-arrow" aria-hidden="true">→</span>`;
+});
 yearSpan.textContent = new Date().getFullYear();
 
 // ─── 2 & 3. Panel Toggle Logic ───────────────────────────────────────────────
