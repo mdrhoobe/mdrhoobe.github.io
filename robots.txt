@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mdrhoobe.github.io/sitemap.xml
