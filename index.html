@@ -3,15 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- ── SEO & Open Graph ── -->
   <title>Mohammed Saleh — Full Stack Developer & OSINT Researcher</title>
+  <meta name="description" content="Full Stack Developer, OSINT Researcher, and Cybersecurity Enthusiast based in Tripoli, Libya. Available for opportunities.">
+  <meta name="author" content="Mohammed Saleh">
+  <meta name="keywords" content="Full Stack Developer, OSINT, Cybersecurity, Libya, React, Node.js">
+
+  <!-- Open Graph (LinkedIn, WhatsApp, Twitter preview) -->
+  <meta property="og:title"       content="Mohammed Saleh — Full Stack Developer & OSINT Researcher">
+  <meta property="og:description" content="IT specialist with 10+ years of experience in web development, network infrastructure, and OSINT cyber investigation.">
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://mdrhoobe.github.io">
+  <meta property="og:image"       content="https://mdrhoobe.github.io/og-image.png">
+  <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:title"      content="Mohammed Saleh — Full Stack Developer">
+  <meta name="twitter:description"content="Full Stack Developer · OSINT Researcher · Cybersecurity Enthusiast">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='8' fill='%230a0a0a'/><text y='.9em' font-size='80' x='10'>M</text></svg>">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <!-- Reading progress bar -->
   <div id="reading-progress" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div id="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Command palette -->
+  <div id="cmd-overlay" aria-hidden="true">
+    <div id="cmd-palette" role="dialog" aria-label="Command palette">
+      <div id="cmd-input-wrap">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input id="cmd-input" type="text" placeholder="Search sections..." autocomplete="off" spellcheck="false">
+        <kbd>ESC</kbd>
+      </div>
+      <div id="cmd-results"></div>
+      <div id="cmd-footer">
+        <span><kbd>↑↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> go</span>
+        <span><kbd>ESC</kbd> close</span>
+      </div>
+    </div>
+  </div>
 
   <div class="grid-bg" aria-hidden="true"></div>
 
@@ -22,17 +66,61 @@
       <div class="status-pill">
         <span class="status-dot" aria-hidden="true"></span>
         Available for opportunities
+        <span class="status-sep">·</span>
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle light/dark mode" title="Toggle theme">
+          <svg class="icon-dark" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg class="icon-light" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+        <span class="status-sep">·</span>
+        <button class="cmd-hint" id="cmd-trigger" title="Press / or Ctrl+K">
+          <kbd>/</kbd> search
+        </button>
       </div>
+
       <h1>Mohammed<br><em>Saleh</em></h1>
 
-      <!-- Typing animation tagline -->
       <p class="tagline">
         <span id="typing-text"></span><span class="typing-cursor">|</span>
       </p>
 
-      <!-- Header actions row -->
+      <!-- Stats -->
+      <div class="stats-row" id="stats-row">
+        <div class="stat-item">
+          <span class="stat-num" data-target="10">0</span>
+          <span class="stat-plus">+</span>
+          <span class="stat-label">Years Exp.</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="3">0</span>
+          <span class="stat-label">Certifications</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-num" data-target="4">0</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-sep"></div>
+        <div class="stat-item">
+          <span class="stat-num" id="visitor-count">...</span>
+          <span class="stat-label">Profile Views</span>
+        </div>
+      </div>
+
+      <!-- Actions -->
       <div class="header-actions">
-        <!-- CV Download button -->
         <button id="cv-download-btn" class="cv-download-btn" aria-label="Download CV as PDF">
           <span class="cv-btn-icon" aria-hidden="true">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
@@ -47,21 +135,20 @@
           <span class="cv-btn-tag">PDF · Live</span>
         </button>
 
-        <!-- Print button -->
-        <button id="print-btn" class="icon-action-btn" aria-label="Print this page" title="Print / Save as PDF">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+        <button id="print-btn" class="icon-action-btn" title="Print / Save as PDF">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <polyline points="6 9 6 2 18 2 18 9"/>
             <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/>
             <rect x="6" y="14" width="12" height="8"/>
           </svg>
-          <span>Print</span>
+          Print
         </button>
       </div>
     </header>
 
     <!-- ── ABOUT ── -->
-    <section aria-labelledby="about-label">
+    <section id="sec-about" aria-labelledby="about-label" data-reveal>
       <p class="section-label" id="about-label">About</p>
       <p class="about-text">
         IT specialist with expertise in full-stack web development, network infrastructure,
@@ -74,23 +161,17 @@
     <hr class="divider">
 
     <!-- ── PROJECTS ── -->
-    <section aria-labelledby="projects-label">
+    <section id="sec-projects" aria-labelledby="projects-label" data-reveal>
       <p class="section-label" id="projects-label">Projects</p>
       <div class="projects-grid">
 
-        <a class="project-card" href="https://github.com/mdrhoobe/project1"
-           target="_blank" rel="noopener noreferrer">
+        <a class="project-card" href="https://github.com/mdrhoobe" target="_blank" rel="noopener noreferrer">
           <div class="project-header">
             <span class="project-icon">🔍</span>
-            <div class="project-links">
-              <span class="project-tag">Open Source</span>
-            </div>
+            <span class="project-tag">OSINT</span>
           </div>
           <div class="project-name">OSINT Toolkit</div>
-          <div class="project-desc">
-            A collection of Python scripts for automated open-source intelligence
-            gathering, data extraction, and digital footprint analysis.
-          </div>
+          <div class="project-desc">Python scripts for automated intelligence gathering, data extraction, and digital footprint analysis.</div>
           <div class="project-stack">
             <span class="stack-tag">Python</span>
             <span class="stack-tag">OSINT</span>
@@ -98,19 +179,13 @@
           </div>
         </a>
 
-        <a class="project-card" href="https://github.com/mdrhoobe/project2"
-           target="_blank" rel="noopener noreferrer">
+        <a class="project-card" href="https://github.com/mdrhoobe" target="_blank" rel="noopener noreferrer">
           <div class="project-header">
             <span class="project-icon">🌐</span>
-            <div class="project-links">
-              <span class="project-tag">Full Stack</span>
-            </div>
+            <span class="project-tag">Full Stack</span>
           </div>
           <div class="project-name">Network Monitor Dashboard</div>
-          <div class="project-desc">
-            Real-time network monitoring web application with alerting,
-            traffic analysis, and device management for IT infrastructure.
-          </div>
+          <div class="project-desc">Real-time network monitoring with alerting, traffic analysis, and device management.</div>
           <div class="project-stack">
             <span class="stack-tag">React</span>
             <span class="stack-tag">Node.js</span>
@@ -118,39 +193,27 @@
           </div>
         </a>
 
-        <a class="project-card" href="https://github.com/mdrhoobe/project3"
-           target="_blank" rel="noopener noreferrer">
+        <a class="project-card" href="https://github.com/mdrhoobe" target="_blank" rel="noopener noreferrer">
           <div class="project-header">
             <span class="project-icon">🔐</span>
-            <div class="project-links">
-              <span class="project-tag">Security</span>
-            </div>
+            <span class="project-tag">Security</span>
           </div>
           <div class="project-name">Cyber Threat Analyser</div>
-          <div class="project-desc">
-            Web-based tool for analysing indicators of compromise,
-            cross-referencing threat intelligence feeds, and generating reports.
-          </div>
+          <div class="project-desc">Tool for analysing indicators of compromise and cross-referencing threat intelligence feeds.</div>
           <div class="project-stack">
             <span class="stack-tag">Python</span>
             <span class="stack-tag">REST API</span>
-            <span class="stack-tag">Cybersecurity</span>
+            <span class="stack-tag">Security</span>
           </div>
         </a>
 
-        <a class="project-card" href="https://github.com/yourusername"
-           target="_blank" rel="noopener noreferrer">
+        <a class="project-card" href="https://github.com/mdrhoobe" target="_blank" rel="noopener noreferrer">
           <div class="project-header">
             <span class="project-icon">💼</span>
-            <div class="project-links">
-              <span class="project-tag">Portfolio</span>
-            </div>
+            <span class="project-tag">Portfolio</span>
           </div>
           <div class="project-name">This Portfolio</div>
-          <div class="project-desc">
-            Dark-themed developer portfolio with dynamic PDF CV generation,
-            multilingual support, and zero dependencies beyond vanilla JS.
-          </div>
+          <div class="project-desc">Dark-themed portfolio with dynamic PDF CV generation, multilingual support, and zero frameworks.</div>
           <div class="project-stack">
             <span class="stack-tag">HTML</span>
             <span class="stack-tag">CSS</span>
@@ -163,45 +226,65 @@
 
     <hr class="divider">
 
-    <!-- ── TECHNICAL SKILLS ── -->
-    <section aria-labelledby="skills-label">
+    <!-- ── SKILLS ── -->
+    <section id="sec-skills" aria-labelledby="skills-label" data-reveal>
       <p class="section-label" id="skills-label">Technical Skills</p>
-      <div class="skill-grid">
-        <div class="skill-item">
-          <span class="skill-name">React / Node.js</span>
-          <span class="skill-cat">Frontend · Backend</span>
+      <div class="skills-bars">
+        <div class="skill-bar-item" data-reveal>
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">React / Node.js</span>
+            <span class="skill-bar-cat">Frontend · Backend</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="85"></div></div>
         </div>
-        <div class="skill-item">
-          <span class="skill-name">MongoDB</span>
-          <span class="skill-cat">Database</span>
+        <div class="skill-bar-item" data-reveal>
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">OSINT Tools</span>
+            <span class="skill-bar-cat">Intelligence</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="92"></div></div>
         </div>
-        <div class="skill-item">
-          <span class="skill-name">REST APIs</span>
-          <span class="skill-cat">Integration</span>
+        <div class="skill-bar-item" data-reveal>
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">Python</span>
+            <span class="skill-bar-cat">Automation</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="78"></div></div>
         </div>
-        <div class="skill-item">
-          <span class="skill-name">Python</span>
-          <span class="skill-cat">Automation · OSINT</span>
+        <div class="skill-bar-item" data-reveal>
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">Network Setup</span>
+            <span class="skill-bar-cat">Infrastructure</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="88"></div></div>
         </div>
-        <div class="skill-item">
-          <span class="skill-name">OSINT Tools</span>
-          <span class="skill-cat">Intelligence</span>
+        <div class="skill-bar-item" data-reveal>
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">Cybersecurity</span>
+            <span class="skill-bar-cat">Security</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="80"></div></div>
         </div>
-        <div class="skill-item">
-          <span class="skill-name">Linux / Bash</span>
-          <span class="skill-cat">Systems</span>
+        <div class="skill-bar-item" data-reveal>
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">Linux / Bash</span>
+            <span class="skill-bar-cat">Systems</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="82"></div></div>
         </div>
-        <div class="skill-item">
-          <span class="skill-name">Network Setup</span>
-          <span class="skill-cat">Infrastructure</span>
+        <div class="skill-bar-item" data-reveal>
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">MongoDB / MySQL</span>
+            <span class="skill-bar-cat">Database</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="75"></div></div>
         </div>
-        <div class="skill-item">
-          <span class="skill-name">Technical Support</span>
-          <span class="skill-cat">IT Infrastructure</span>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">English — C1</span>
-          <span class="skill-cat">Language</span>
+        <div class="skill-bar-item" data-reveal>
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">English</span>
+            <span class="skill-bar-cat">Language · C1</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-pct="90"></div></div>
         </div>
       </div>
     </section>
@@ -209,11 +292,11 @@
     <hr class="divider">
 
     <!-- ── EXPERIENCE ── -->
-    <section aria-labelledby="exp-label">
+    <section id="sec-experience" aria-labelledby="exp-label" data-reveal>
       <p class="section-label" id="exp-label">Experience</p>
       <div class="cert-list">
         <div class="cert-item">
-          <div class="cert-icon" aria-hidden="true">💼</div>
+          <div class="cert-icon">💼</div>
           <div>
             <div class="cert-name">Technical Support Specialist</div>
             <div class="cert-issuer">Communications Unit — Libyan Ministry of Interior</div>
@@ -221,7 +304,7 @@
           </div>
         </div>
         <div class="cert-item">
-          <div class="cert-icon" aria-hidden="true">🌐</div>
+          <div class="cert-icon">🌐</div>
           <div>
             <div class="cert-name">Network Technician</div>
             <div class="cert-issuer">Rawafed Libya for Communications and Technology</div>
@@ -234,25 +317,25 @@
     <hr class="divider">
 
     <!-- ── CREDENTIALS ── -->
-    <section aria-labelledby="creds-label">
+    <section id="sec-credentials" aria-labelledby="creds-label" data-reveal>
       <p class="section-label" id="creds-label">Credentials</p>
       <div class="cert-list">
         <div class="cert-item">
-          <div class="cert-icon" aria-hidden="true">🎓</div>
+          <div class="cert-icon">🎓</div>
           <div>
             <div class="cert-name">B.Sc. Information Technology</div>
             <div class="cert-issuer">Libyan University of Modern Sciences and Technology</div>
           </div>
         </div>
         <div class="cert-item">
-          <div class="cert-icon" aria-hidden="true">🔍</div>
+          <div class="cert-icon">🔍</div>
           <div>
             <div class="cert-name">OSINT Certified Practitioner</div>
             <div class="cert-issuer">UNODC — United Nations Office on Drugs and Crime</div>
           </div>
         </div>
         <div class="cert-item">
-          <div class="cert-icon" aria-hidden="true">💻</div>
+          <div class="cert-icon">💻</div>
           <div>
             <div class="cert-name">Full Stack Developer</div>
             <div class="cert-issuer">IT SHEAR — Jan 2021 · Jun 2021</div>
@@ -263,29 +346,49 @@
 
     <hr class="divider">
 
+    <!-- ── TESTIMONIALS ── -->
+    <section id="sec-testimonials" aria-labelledby="test-label" data-reveal>
+      <p class="section-label" id="test-label">Testimonials</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"Mohammed demonstrated exceptional problem-solving skills during our network infrastructure overhaul. His OSINT expertise proved invaluable."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">AM</div>
+            <div>
+              <div class="testimonial-name">Ahmed M.</div>
+              <div class="testimonial-role">IT Manager · Ministry of Interior</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-quote">"A dedicated professional who consistently delivers above expectations. His technical support kept our systems running smoothly for years."</div>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">KF</div>
+            <div>
+              <div class="testimonial-name">Khalid F.</div>
+              <div class="testimonial-role">Senior Engineer · Rawafed Libya</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
     <!-- ── CONTACT ── -->
-    <section aria-labelledby="contact-label">
+    <section id="sec-contact" aria-labelledby="contact-label" data-reveal>
       <p class="section-label" id="contact-label">Contact</p>
       <button id="btn" aria-expanded="false" aria-controls="contact-panel">
-        Get in touch
-        <span class="btn-arrow" aria-hidden="true">→</span>
+        Get in touch <span class="btn-arrow">→</span>
       </button>
       <div id="contact-panel" class="contact-panel" aria-hidden="true">
-        <div class="contact-item copyable"
-             data-copy="mdrhoobe@gmail.com"
-             data-label="Email"
-             role="button" tabindex="0"
-             aria-label="Copy email address">
-          <span class="contact-icon" aria-hidden="true">✉</span>
+        <div class="contact-item copyable" data-copy="mdrhoobe@gmail.com" data-label="Email" role="button" tabindex="0">
+          <span class="contact-icon">✉</span>
           <span class="contact-value">mdrhoobe@gmail.com</span>
           <span class="copy-hint">click to copy</span>
         </div>
-        <div class="contact-item copyable"
-             data-copy="+218917875051"
-             data-label="Phone"
-             role="button" tabindex="0"
-             aria-label="Copy phone number">
-          <span class="contact-icon" aria-hidden="true">📞</span>
+        <div class="contact-item copyable" data-copy="+218917875051" data-label="Phone" role="button" tabindex="0">
+          <span class="contact-icon">📞</span>
           <span class="contact-value">+218 91 787 5051</span>
           <span class="copy-hint">click to copy</span>
         </div>
@@ -295,19 +398,15 @@
     <hr class="divider">
 
     <!-- ── PROFILES ── -->
-    <section aria-labelledby="social-label">
+    <section id="sec-profiles" aria-labelledby="social-label" data-reveal>
       <p class="section-label" id="social-label">Profiles</p>
       <button id="social-btn" aria-expanded="false" aria-controls="social-panel">
-        View profiles
-        <span class="btn-arrow" aria-hidden="true">→</span>
+        View profiles <span class="btn-arrow">→</span>
       </button>
       <div id="social-panel" class="contact-panel" aria-hidden="true">
 
-        <a class="contact-item social-link"
-           href="https://github.com/mdrhoobe"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="GitHub profile">
-          <span class="contact-icon" aria-hidden="true">
+        <a class="contact-item social-link" href="https://github.com/mdrhoobe" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
             </svg>
@@ -316,11 +415,8 @@
           <span class="social-tag">Code & Projects</span>
         </a>
 
-        <a class="contact-item social-link"
-           href="https://linkedin.com/in/mohammed-salih-3110bb1a8"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="LinkedIn profile">
-          <span class="contact-icon" aria-hidden="true">
+        <a class="contact-item social-link" href="https://linkedin.com/in/mohammed-salih-3110bb1a8" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
@@ -329,11 +425,8 @@
           <span class="social-tag">Professional Network</span>
         </a>
 
-        <a class="contact-item social-link"
-           href="https://stackoverflow.com/users/32810628"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Stack Overflow profile">
-          <span class="contact-icon" aria-hidden="true">
+        <a class="contact-item social-link" href="https://stackoverflow.com/users/32810628" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18.986 21.865v-6.404h2.134V24H1.844v-8.539h2.13v6.404h15.012zM6.111 19.731H17.78v-2.131H6.111v2.131zm.259-4.852 11.42 2.379.451-2.081-11.42-2.379-.451 2.081zm1.359-5.056 10.57 4.939.894-1.975-10.57-4.94-.894 1.976zm2.679-4.936 8.771 7.357 1.389-1.652-8.77-7.358-1.39 1.653zM15.751 0l-1.792 1.338 6.801 9.108 1.792-1.338L15.751 0z"/>
             </svg>
@@ -342,11 +435,8 @@
           <span class="social-tag">Q&A Contributions</span>
         </a>
 
-        <a class="contact-item social-link"
-           href="https://tryhackme.com/p/mdrhoobe"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="TryHackMe profile">
-          <span class="contact-icon" aria-hidden="true">
+        <a class="contact-item social-link" href="https://tryhackme.com/p/mdrhoobe" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
               <path d="M10.705 0C7.54 0 4.902 2.285 4.374 5.298A4.868 4.868 0 0 0 0 10.133a4.868 4.868 0 0 0 4.868 4.868h5.837V10.9H7.3l4.406-4.406 4.406 4.406h-3.405v4.1h5.524A3.773 3.773 0 0 0 22 11.228a3.773 3.773 0 0 0-3.21-3.73C18.156 3.293 14.802 0 10.705 0zm.001 1.614c3.36 0 6.085 2.658 6.085 5.94v.72l.726.08a2.16 2.16 0 0 1 1.869 2.874 2.16 2.16 0 0 1-2.155 1.563h-4.227V9.714l1.566 1.566.943-.943-3.807-3.808-3.808 3.808.944.943 1.566-1.566v3.077H5.165a3.254 3.254 0 0 1-3.55-3.252 3.254 3.254 0 0 1 3.254-3.254l.753-.001.072-.75c.328-3.004 2.84-5.18 5.812-5.18zm-.443 15.388v1.615h1.08v-1.615zm0 2.692V24h1.08v-4.306z"/>
             </svg>
@@ -355,11 +445,8 @@
           <span class="social-tag">Cybersecurity Labs</span>
         </a>
 
-        <a class="contact-item social-link"
-           href="https://twitter.com/maldrhoobe"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="X / Twitter profile">
-          <span class="contact-icon" aria-hidden="true">
+        <a class="contact-item social-link" href="https://twitter.com/maldrhoobe" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
@@ -368,11 +455,8 @@
           <span class="social-tag">Tech Updates</span>
         </a>
 
-        <a class="contact-item social-link"
-           href="https://t.me/XLY_25"
-           target="_blank" rel="noopener noreferrer"
-           aria-label="Telegram profile">
-          <span class="contact-icon" aria-hidden="true">
+        <a class="contact-item social-link" href="https://t.me/XLY_25" target="_blank" rel="noopener noreferrer">
+          <span class="contact-icon">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
               <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
             </svg>
@@ -394,17 +478,28 @@
 
   <!-- Toast -->
   <div id="copied-toast" role="status" aria-live="polite">
-    <span id="toast-text">Copied to clipboard ✓</span>
+    <span id="toast-text">Copied ✓</span>
   </div>
 
   <!-- Back to top -->
-  <button id="back-to-top" aria-label="Back to top" title="Back to top">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-         stroke="currentColor" stroke-width="2.2"
-         stroke-linecap="round" stroke-linejoin="round">
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
       <path d="M18 15l-6-6-6 6"/>
     </svg>
   </button>
+
+  <!-- Easter egg hint (hidden) -->
+  <div id="easter-egg" aria-hidden="true">
+    <div id="easter-egg-inner">
+      <span>🎮</span>
+      <p>You found the easter egg!</p>
+      <small>↑↑↓↓←→←→ — the classic</small>
+      <button id="easter-close">×</button>
+    </div>
+  </div>
+
+  <!-- robots.txt hint in HTML comments -->
+  <!-- robots.txt: User-agent: * Allow: / -->
 
   <script src="script.js" defer></script>
   <script src="cv.js" defer></script>
