@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>السيرة الذاتية — محمد رضا منصور صالح</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --navy:#17375e; --text:#333; --muted:#777; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:'Cairo',sans-serif; background:#e9e9e9; color:var(--text); font-size:11px; line-height:1.75; }
+
+  .toolbar { text-align:center; padding:12px; }
+  .toolbar button { font-family:inherit; font-size:13px; padding:8px 22px; background:var(--navy); color:#fff; border:0; border-radius:3px; cursor:pointer; }
+
+  .page { width:210mm; min-height:297mm; margin:0 auto 16px; background:#fff; position:relative; overflow:hidden;
+          -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+
+  header { background:var(--navy); color:#fff; padding:14mm 14mm 24mm;
+           clip-path:polygon(0 0,100% 0,100% 80%,0 100%); }
+  header h1 { font-size:30px; font-weight:700; line-height:1.3; }
+  header p  { font-size:13px; margin-top:4px; max-width:150mm; }
+
+  .body { display:grid; grid-template-columns:62mm 1fr; gap:8mm; padding:4mm 14mm 12mm; }
+  .side { border-inline-end:1.5px solid var(--navy); padding-inline-end:6mm; }
+
+  h2 { font-size:15px; color:var(--navy); font-weight:700; margin:14px 0 6px; }
+  h2:first-child { margin-top:0; }
+  h3 { font-size:11.5px; font-weight:700; margin-top:8px; }
+  .sub { color:var(--muted); font-size:10.5px; }
+
+  ul { padding-inline-start:14px; }
+  li { margin-bottom:1px; }
+  .side li { margin-bottom:4px; }
+
+  .contact div { margin-bottom:3px; }
+
+  @page { size:A4; margin:0; }
+  @media print {
+    body { background:#fff; }
+    .toolbar { display:none; }
+    .page { margin:0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="toolbar"><button onclick="window.print()">تحميل PDF</button></div>
+
+<div class="page">
+  <header>
+    <h1>محمد رضا منصور صالح</h1>
+    <p>مطور الويب المتكامل (<bdi dir="ltr">Full Stack</bdi>) | باحث استخبارات المصادر المفتوحة (<bdi dir="ltr">OSINT</bdi>) | مهتم بالأمن السيبراني</p>
+  </header>
+
+  <div class="body">
+
+    <!-- العمود الجانبي -->
+    <aside class="side">
+      <h2>معلومات التواصل</h2>
+      <div class="contact">
+        <div><bdi dir="ltr">+218-917875051</bdi></div>
+        <div><bdi dir="ltr">mdrhoobe@gmail.com</bdi></div>
+        <div>ليبيا - طرابلس</div>
+      </div>
+
+      <h2>التعليم</h2>
+      <h3>بكالوريوس تقنية المعلومات | برمجة</h3>
+      <div class="sub">الجامعة الليبية للعلوم الحديثة والتقنية | 2025</div>
+      <h3>دبلوم عالي في تقنية المعلومات</h3>
+      <div class="sub">معهد عين شمس العالي | 2020</div>
+
+      <h2>المهارات</h2>
+      <ul>
+        <li>الواجهات الأمامية: <bdi dir="ltr">React, HTML5, CSS3, JavaScript</bdi></li>
+        <li>الخلفية البرمجية: <bdi dir="ltr">Node.js, REST APIs</bdi></li>
+        <li>قواعد البيانات: <bdi dir="ltr">MongoDB, MySQL</bdi></li>
+        <li>استخبارات المصادر المفتوحة (<bdi dir="ltr">OSINT</bdi>): أدوات ومنهجيات</li>
+        <li>الشبكات: إعداد وتكوين واكتشاف الأخطاء وإصلاحها</li>
+        <li>الأمن السيبراني وحماية البيانات</li>
+        <li>الأنظمة: <bdi dir="ltr">Linux</bdi>، كتابة سكربتات <bdi dir="ltr">Bash</bdi></li>
+        <li>مهارات شخصية: العمل الجماعي، سرعة التعلم، العمل تحت الضغط</li>
+      </ul>
+
+      <h2>اللغات</h2>
+      <ul>
+        <li>اللغة العربية</li>
+        <li>اللغة الإنجليزية | <bdi dir="ltr">IELTS</bdi></li>
+      </ul>
+    </aside>
+
+    <!-- العمود الرئيسي -->
+    <main>
+      <h2>الملف الشخصي</h2>
+      <p>متخصص في تقنية المعلومات بخبرة في الدعم الفني والبنية التحتية للشبكات منذ 2017،
+         ومدير حالي لوحدة التحري الرقمي في وزارة الداخلية الليبية. أعمل على تطوير مهاراتي في
+         تطوير الويب المتكامل (<bdi dir="ltr">Full-Stack</bdi>) واستخبارات المصادر المفتوحة
+         (<bdi dir="ltr">OSINT</bdi>)، مع اهتمام قوي بالأمن السيبراني والتحول الرقمي.</p>
+
+      <h2>الخبرات المهنية</h2>
+
+      <h3>مدير وحدة التحري الرقمي</h3>
+      <div class="sub">وزارة الداخلية | 2024 - الآن</div>
+      <ul>
+        <li>قيادة الوحدة المسؤولة عن التحريات الرقمية.</li>
+        <li>تطبيق منهجيات <bdi dir="ltr">OSINT</bdi> والأدلة الجنائية الرقمية في التحريات.</li>
+        <li>التنسيق مع فرق تقنية المعلومات والوحدات الأخرى في الحوادث التقنية.</li>
+      </ul>
+
+      <h3>أخصائي دعم فني</h3>
+      <div class="sub">وزارة الداخلية | 2017 - 2024</div>
+      <ul>
+        <li>حل سريع للمشكلات المتعلقة بالأجهزة والبرمجيات والشبكات.</li>
+        <li>تشخيص الأعطال وتطبيق حلول فعالة في الوقت المناسب.</li>
+        <li>تنفيذ تحديثات الأنظمة والترقيعات البرمجية وتعزيز الحماية الأمنية.</li>
+        <li>التنسيق مع فرق تقنية المعلومات لحل الحوادث والمشكلات التقنية المعقدة.</li>
+      </ul>
+
+      <h3>فني شبكات (دوام جزئي)</h3>
+      <div class="sub">شركة روافد ليبيا للاتصالات والتقنية | يناير 2017 - يناير 2018</div>
+      <ul>
+        <li>تركيب وإعداد أجهزة الشبكة لضمان الاتصالية المستمرة.</li>
+        <li>تشخيص وإصلاح أعطال شبكات <bdi dir="ltr">LAN/WAN</bdi> بسرعة وكفاءة.</li>
+        <li>إجراء تدقيق وتقييم لأداء الشبكة.</li>
+      </ul>
+
+      <h2>الدورات والشهادات التدريبية</h2>
+
+      <h3>ممارس معتمد في <bdi dir="ltr">OSINT</bdi></h3>
+      <div class="sub">المركز الإقليمي لمكافحة الجريمة السيبرانية التابع لمكتب الأمم المتحدة المعني بالمخدرات والجريمة (<bdi dir="ltr">UNODC</bdi>) | الدوحة، قطر | فبراير 2025</div>
+      <ul>
+        <li>تحليل بيانات المصادر المفتوحة واستخراج المعلومات الاستخباراتية.</li>
+        <li>الكشف عن التهديدات الإلكترونية باستخدام منهجيات <bdi dir="ltr">OSINT</bdi>.</li>
+        <li>الأدلة الجنائية الرقمية والتحقيق في الآثار السيبرانية.</li>
+      </ul>
+
+      <h3>مطور الويب المتكامل (<bdi dir="ltr">Full Stack Developer</bdi>)</h3>
+      <div class="sub">مركز <bdi dir="ltr">IT SHEAR</bdi> التدريبي | يناير - يونيو 2021</div>
+      <ul>
+        <li>الواجهات الأمامية: <bdi dir="ltr">HTML5, CSS3, JavaScript</bdi>. الخلفية البرمجية: <bdi dir="ltr">Node.js</bdi>.</li>
+        <li>تصميم قواعد البيانات: <bdi dir="ltr">MongoDB</bdi> و <bdi dir="ltr">MySQL</bdi>.</li>
+        <li>أمن التطبيقات وتحسين الأداء والنشر.</li>
+      </ul>
+    </main>
+
+  </div>
+</div>
+
+</body>
+</html>
