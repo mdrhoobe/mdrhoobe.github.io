@@ -24,6 +24,19 @@ window.CV_PROFILE = Object.freeze({
   ],
   certifications: [
     {
+      title: 'EASA Open Category A1/A3 — Proof of Completion of Online Training',
+      institution: 'Directorate of Civil Aviation (DAC), Luxembourg',
+      date: '22 November 2026 (valid through 22 November 2031)',
+      points: ['Remote pilot training and examination for the UAS Open Category A1/A3.']
+    },
+    {
+      title: 'UK CAA Flyer ID — Online Theory Test',
+      institution: 'Civil Aviation Authority (CAA), United Kingdom',
+      date: '22 November 2026 (valid through 22 November 2031)',
+      points: ['Passed UK drone flyer theory test; Flyer ID issued.']
+    },
+
+    {
       title: 'English Language Courses',
       institution: 'EMS Language Centre, Malaysia',
       date: '2026',
@@ -66,7 +79,7 @@ window.CV_PROFILE = Object.freeze({
     {
       title: 'Technical Support Specialist',
       company: 'Ministry of Interior, Libya',
-      dates: '2017 - Present',
+      dates: '2017 - 2024',
       points: [
         'Rapid resolution of hardware, software, and network issues.',
         'Diagnosing faults and applying effective solutions on time.',
