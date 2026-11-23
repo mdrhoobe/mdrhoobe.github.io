@@ -2,14 +2,14 @@
    Keep it factual; never put scanned certificates or sensitive credentials here. */
 window.CV_PROFILE = Object.freeze({
   name: 'Mohammed Ridha Mansour Salih',
-  subtitle: 'Full Stack Developer  |  OSINT Researcher  |  Cybersecurity Enthusiast',
+  subtitle: 'IT & Cybersecurity  |  Python & OSINT  |  UAV Operations',
   location: 'Tripoli, Libya',
   phone: '+218 91 787 5051',
   email: 'mdrhoobe@gmail.com',
   github: 'github.com/mdrhoobe',
   linkedin: 'linkedin.com/in/mohammed-salih-3110bb1a8',
   outputName: 'Mohammed_Ridha_Mansour_Salih_CV_EN.pdf',
-  summary: 'IT professional with experience in technical support and network infrastructure since 2017, and currently Head of the Digital Investigation Unit at the Libyan Ministry of Interior. Developing expertise in full-stack web development and open-source intelligence (OSINT), with a strong focus on cybersecurity and digital transformation.',
+  summary: 'IT professional with hands-on experience in technical support, networking, communications systems, and UAV operations. Develops reproducible Python and OSINT projects for defensive cybersecurity research, with an interest in graduate study in cybersecurity and artificial intelligence.',
   education: [
     {
       title: 'B.Sc. Information Technology (Programming)',
@@ -23,6 +23,12 @@ window.CV_PROFILE = Object.freeze({
     }
   ],
   certifications: [
+    {
+      title: 'English Language Courses',
+      institution: 'EMS Language Centre, Malaysia',
+      date: '2026',
+      points: ['English language study and course completion.']
+    },
     {
       title: 'OSINT Certified Practitioner',
       institution: 'UNODC Regional Centre for Combatting Cybercrime, Doha, Qatar',
@@ -44,23 +50,23 @@ window.CV_PROFILE = Object.freeze({
       ]
     }
   ],
-  languages: ['Arabic: Native', 'English: IELTS'],
+  languages: ['Arabic: Native', 'English: IELTS 5.5'],
   interests: ['Technical literature', 'Photography', 'Volunteer work', 'Programming'],
   experience: [
     {
-      title: 'Head of Digital Investigation Unit',
+      title: 'UAV Operations and Technical Support',
       company: 'Ministry of Interior, Libya',
-      dates: '2024 - Present',
+      dates: '2019 - Present',
       points: [
-        'Lead the unit responsible for digital investigations.',
-        'Apply OSINT methodologies and digital forensics in investigations.',
-        'Coordinate with IT teams and other units on technical incidents.'
+        'Operate DJI UAV platforms including Phantom 4, Mavic and Matrice series for search-and-rescue and reconnaissance assignments.',
+        'Support mission preparation, equipment checks, and technical operations.',
+        'Experience with agricultural UAV platforms.'
       ]
     },
     {
       title: 'Technical Support Specialist',
       company: 'Ministry of Interior, Libya',
-      dates: '2017 - 2024',
+      dates: '2017 - Present',
       points: [
         'Rapid resolution of hardware, software, and network issues.',
         'Diagnosing faults and applying effective solutions on time.',
@@ -83,7 +89,8 @@ window.CV_PROFILE = Object.freeze({
     ['Frontend', 'React, HTML5, CSS3, JavaScript'],
     ['Backend', 'Node.js, REST APIs'],
     ['Database', 'MongoDB, MySQL'],
-    ['OSINT', 'Intelligence tools and methodology'],
+    ['OSINT', 'Python, public-source domain research, intelligence methodology'],
+    ['UAV', 'DJI Phantom, Mavic and Matrice operations; GNSS / RTK'],
     ['Network', 'Setup, configuration and troubleshooting'],
     ['Security', 'Cybersecurity and data protection'],
     ['Systems', 'Linux, Bash scripting'],
