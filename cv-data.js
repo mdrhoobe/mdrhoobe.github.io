@@ -24,6 +24,13 @@ window.CV_PROFILE = Object.freeze({
   ],
   certifications: [
     {
+      title: 'FAA TRUST — Recreational UAS Safety Test Completion',
+      institution: 'Pilot Institute (FAA-approved TRUST Test Administrator)',
+      date: '2026',
+      points: ['Completed FAA recreational drone safety and knowledge test (TRUST); not a Part 107 remote pilot certificate.']
+    },
+
+    {
       title: 'EASA Open Category A1/A3 — Proof of Completion of Online Training',
       institution: 'Directorate of Civil Aviation (DAC), Luxembourg',
       date: '22 November 2026 (valid through 22 November 2031)',
